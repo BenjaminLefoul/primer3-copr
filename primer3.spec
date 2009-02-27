@@ -1,6 +1,6 @@
 Name:           primer3
 Version:        1.1.4
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -65,6 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/ntdpal
 
 %changelog
+* Thu Feb 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.4-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Mon Oct 06 2008 pingou <pingoufc4@yahoo.fr> 1.1.4-5
 - Remove headers, not needed
 
