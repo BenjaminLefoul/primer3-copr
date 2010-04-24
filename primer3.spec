@@ -1,12 +1,12 @@
 Name:           primer3
-Version:        1.1.4
-Release:        7%{?dist}
+Version:        2.2.2
+Release:        pre1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
 License:        BSD and GPLv2+
 URL:            http://primer3.sourceforge.net
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-beta.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -21,15 +21,17 @@ primer3 exactly what characteristics make good primers for your goals.
 
 
 %prep
-%setup -q -c -n %{name}
+#%setup -q -c -n %{name}-%{version}-beta
+%setup -q  -n %{name}-%{version}-beta
 
-cp -p README.txt readme.txt.noutf8
+#cp -p README.txt readme.txt.noutf8
 
-iconv -f ISO-8859-1 -t UTF-8 -o README.txt.tmp README.txt
-mv README.txt.tmp README.txt
+#iconv -f ISO-8859-1 -t UTF-8 -o README.txt.tmp README.txt
+#mv README.txt.tmp README.txt
 
-touch -r readme.txt.noutf8 README.txt
-rm readme.txt.noutf8
+#touch -r readme.txt.noutf8 README.txt
+#rm readme.txt.noutf8
+chmod -x src/*
 
 sed -i -e 's|CFLAGS  = $(CC_OPTS) $(O_OPTS)|CFLAGS  = $(CC_OPTS) $(O_OPTS) $(INIT_CFLAGS)|' src/Makefile
 
@@ -58,13 +60,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc README.txt COPYING.txt how-to-cite.txt example 
+#%doc README.txt COPYING.txt how-to-cite.txt example 
+%doc COPYING.txt example 
 %doc src/gpl-2.0.txt src/release_notes.txt
 %{_bindir}/%{name}_core
 %{_bindir}/oligotm
 %{_bindir}/ntdpal
 
 %changelog
+* Sat Apr 24 2010 pingou <pingou@pingoured.fr> - 2.2.2-pre1
+- Build version 2.2.2 beta
+
 * Sun Jul 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.1.4-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
