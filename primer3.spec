@@ -24,6 +24,7 @@ primer3 exactly what characteristics make good primers for your goals.
 %setup -q  -n %{name}-%{version}
 
 chmod -x src/*
+chmod +x src/primer3_config # causes permissions issue if removed
 sed -i -e 's|CFLAGS  = $(CC_OPTS) $(O_OPTS)|CFLAGS  = $(CC_OPTS) $(O_OPTS) $(INIT_CFLAGS)|' src/Makefile
 
 %build
@@ -61,6 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Nov 25 2010 pingou <pingou@pingoured.fr> - 2.2.3-1
 - Update to 2.2.3
+- Fix permission issue
 
 * Sat Apr 24 2010 pingou <pingou@pingoured.fr> - 2.2.2-pre1
 - Build version 2.2.2 beta
