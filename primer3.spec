@@ -1,12 +1,12 @@
 Name:           primer3
-Version:        2.2.2
-Release:        pre1%{?dist}
+Version:        2.2.3
+Release:        1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
 License:        BSD and GPLv2+
 URL:            http://primer3.sourceforge.net
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}-beta.tar.gz
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -21,18 +21,9 @@ primer3 exactly what characteristics make good primers for your goals.
 
 
 %prep
-#%setup -q -c -n %{name}-%{version}-beta
-%setup -q  -n %{name}-%{version}-beta
+%setup -q  -n %{name}-%{version}
 
-#cp -p README.txt readme.txt.noutf8
-
-#iconv -f ISO-8859-1 -t UTF-8 -o README.txt.tmp README.txt
-#mv README.txt.tmp README.txt
-
-#touch -r readme.txt.noutf8 README.txt
-#rm readme.txt.noutf8
 chmod -x src/*
-
 sed -i -e 's|CFLAGS  = $(CC_OPTS) $(O_OPTS)|CFLAGS  = $(CC_OPTS) $(O_OPTS) $(INIT_CFLAGS)|' src/Makefile
 
 %build
@@ -68,6 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/ntdpal
 
 %changelog
+* Thu Nov 25 2010 pingou <pingou@pingoured.fr> - 2.2.3-1
+- Update to 2.2.3
+
 * Sat Apr 24 2010 pingou <pingou@pingoured.fr> - 2.2.2-pre1
 - Build version 2.2.2 beta
 
