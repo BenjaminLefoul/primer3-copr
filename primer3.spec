@@ -1,6 +1,6 @@
 Name:           primer3
 Version:        2.2.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -60,6 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/ntdpal
 
 %changelog
+* Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Wed Feb 09 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
