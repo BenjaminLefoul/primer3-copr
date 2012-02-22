@@ -1,6 +1,6 @@
 Name:           primer3
-Version:        2.2.3
-Release:        3%{?dist}
+Version:        2.3.0
+Release:        1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -53,13 +53,17 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 #%doc README.txt COPYING.txt how-to-cite.txt example 
-%doc COPYING.txt example 
+%doc COPYING.txt example primer3_manual.htm
+%doc *settings.txt
 %doc src/gpl-2.0.txt src/release_notes.txt
 %{_bindir}/%{name}_core
 %{_bindir}/oligotm
 %{_bindir}/ntdpal
 
 %changelog
+* Wed Feb 22 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.0-1
+- Update to release 2.3.0
+
 * Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
