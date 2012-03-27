@@ -1,5 +1,5 @@
 Name:           primer3
-Version:        2.3.0
+Version:        2.3.2
 Release:        1%{?dist}
 Summary:        PCR primer design tool
 
@@ -26,6 +26,7 @@ primer3 exactly what characteristics make good primers for your goals.
 chmod -x src/*
 chmod +x src/primer3_config # causes permissions issue if removed
 sed -i -e 's|CFLAGS  = $(CC_OPTS) $(O_OPTS)|CFLAGS  = $(CC_OPTS) $(O_OPTS) $(INIT_CFLAGS)|' src/Makefile
+sed -i 's/\r//' primer3web_v0_4_0_default_settings.txt
 
 %build
 cd src
@@ -61,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/ntdpal
 
 %changelog
+* Tue Mar 27 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.2-1
+- Update to release 2.3.2
+
 * Wed Feb 22 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.0-1
 - Update to release 2.3.0
 
