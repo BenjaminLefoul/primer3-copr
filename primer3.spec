@@ -1,6 +1,6 @@
 Name:           primer3
 Version:        2.3.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -28,6 +28,8 @@ chmod +x src/primer3_config # causes permissions issue if removed
 sed -i -e 's|CFLAGS  = $(CC_OPTS) $(O_OPTS)|CFLAGS  = $(CC_OPTS) $(O_OPTS) $(INIT_CFLAGS)|' src/Makefile
 sed -i 's/\r//' primer3web_v0_4_0_default_settings.txt
 
+sed -i -e 's|/opt/primer3_config|/etc/primer3_config|' src/release_notes.txt src/thal_main.c src/primer3_boulder_main.c primer3_manual.htm
+
 %build
 cd src
 
@@ -41,6 +43,10 @@ mkdir -p $RPM_BUILD_ROOT%{_bindir}
 install -p -m 0755 src/%{name}_core $RPM_BUILD_ROOT%{_bindir}/%{name}_core
 install -p -m 0755 src/oligotm $RPM_BUILD_ROOT%{_bindir}/oligotm
 install -p -m 0755 src/ntdpal $RPM_BUILD_ROOT%{_bindir}/ntdpal
+
+mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/primer3_config
+cp -r src/primer3_config $RPM_BUILD_ROOT%{_sysconfdir}/
+
 
 %check
 pushd src
@@ -60,8 +66,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%{name}_core
 %{_bindir}/oligotm
 %{_bindir}/ntdpal
+%{_sysconfdir}/primer3_config
 
 %changelog
+* Tue Mar 27 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.2-2
+- Include the primer3_config folder RHBZ#821501
+- Move primer3_config from /opt/ where upstream wants it to /etc where I want it
+
 * Tue Mar 27 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.2-1
 - Update to release 2.3.2
 
