@@ -1,6 +1,6 @@
 Name:           primer3
-Version:        2.3.2
-Release:        2%{?dist}
+Version:        2.3.4
+Release:        1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -69,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/primer3_config
 
 %changelog
+* Tue Jun 26 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.4-1
+- Update to 2.3.4
+
 * Tue Mar 27 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.2-2
 - Include the primer3_config folder RHBZ#821501
 - Move primer3_config from /opt/ where upstream wants it to /etc where I want it
@@ -79,6 +82,12 @@ rm -rf $RPM_BUILD_ROOT
 * Wed Feb 22 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.0-1
 - Update to release 2.3.0
 
+<<<<<<< HEAD
+=======
+* Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+>>>>>>> master
 * Wed Feb 09 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
