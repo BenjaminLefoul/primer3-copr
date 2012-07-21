@@ -1,6 +1,6 @@
 Name:           primer3
 Version:        2.3.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -69,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/primer3_config
 
 %changelog
+* Sat Jul 21 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.4-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
+
 * Tue Jun 26 2012 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.4-1
 - Update to 2.3.4
 
