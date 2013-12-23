@@ -1,12 +1,12 @@
 Name:           primer3
-Version:        2.3.5
+Version:        2.3.6
 Release:        1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
 License:        BSD and GPLv2+
 URL:            http://primer3.sourceforge.net
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-src-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -69,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/primer3_config
 
 %changelog
+* Mon Dec 23 2013 Pierre-Yves Chibon <pingou@pingoured.fr> 2.3.6-1
+- Update to 2.3.6
+
 * Thu Sep 05 2013 Pierre-Yves Chibon <pingou@pingoured.fr> - 2.3.5-1
 - Update to 2.3.5
 
