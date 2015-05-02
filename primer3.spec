@@ -1,6 +1,6 @@
 Name:           primer3
 Version:        2.3.6
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
@@ -69,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/primer3_config
 
 %changelog
+* Sat May 02 2015 Kalev Lember <kalevlember@gmail.com> - 2.3.6-4
+- Rebuilt for GCC 5 C++11 ABI change
+
 * Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.6-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
