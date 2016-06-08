@@ -1,12 +1,12 @@
 Name:           primer3
-Version:        2.3.6
-Release:        6%{?dist}
+Version:        2.3.7
+Release:        1%{?dist}
 Summary:        PCR primer design tool
 
 Group:          Applications/Productivity
 License:        BSD and GPLv2+
 URL:            http://primer3.sourceforge.net
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-src-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -69,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/primer3_config
 
 %changelog
+* Wed Jun 08 2016 Benjamin Lefoul <benjamin.lefoul@nwise.se> 2.3.7-1
+- Update to 2.3.7
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.3.6-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
